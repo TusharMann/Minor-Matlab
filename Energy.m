@@ -4,6 +4,8 @@ graph=[];
 coor=[];
 xcoor=[];
 ycoor=[];
+rxcoor=[];
+rycoor=[];
 
 for i=1:n
     for j=1:2
@@ -174,9 +176,15 @@ for i=1:n
     ycoor(i)=coor(i,2);
 end
 
+for i=1:psize
+    rxcoor(i)=coor(path(i),1);
+    rycoor(i)=coor(path(i),2);
+end
+    
+
 figure
 subplot(1,1,1);
-plot(xcoor,ycoor,'*');
+plot(xcoor,ycoor,'*',rxcoor,rycoor,'LineWidth',2);
 xlabel('X');
 ylabel('Y');
 grid on;
