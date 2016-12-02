@@ -6,6 +6,7 @@ xcoor=[];
 ycoor=[];
 rxcoor=[];
 rycoor=[];
+dij=[];
 
 for i=1:n
     for j=1:2
@@ -92,7 +93,13 @@ for i=1:n
     end
 end
 
+%dijkastra algo...........
+
+[dij,dsize]=Dijkstra(graph,orgarre,arre,arey,ind,src,des,n);
+
+%end..................
   
+
 
 while src~=des
   %  [src,orgarre,arey,ind]=call(des,src,graph,arre,ind,arey,srdist,orgarre,n);
@@ -182,6 +189,12 @@ for i=1:psize
     rycoor(i)=coor(path(i),2);
 end
 
+for i=1:dsize
+    dxcoor(i)=coor(dij(i),1);
+    dycoor(i)=coor(dij(i),2);
+end
+
+
 srxcoor=coor(start,1);
 srycoor=coor(start,2);
 
@@ -189,13 +202,15 @@ dsxcoor=coor(des,1);
 dsycoor=coor(des,2);
 
 figure(2)
-pause(0.01);
-plot(dsxcoor,dsycoor,'.');
+subplot(1,1,1);
+plot(xcoor,ycoor,'*',dxcoor,dycoor,srxcoor,srycoor,'v',dsxcoor,dsycoor,'.','LineWidth',2);
+xlabel('X');
+ylabel('Y');
 grid on;
 
 figure
+pause(0.05);
 subplot(1,1,1);
-hold all
 %plot(dsxcoor,dsycoor,'.');
 plot(xcoor,ycoor,'*',rxcoor,rycoor,'b',srxcoor,srycoor,'v',dsxcoor,dsycoor,'.','LineWidth',2);
 xlabel('X');
