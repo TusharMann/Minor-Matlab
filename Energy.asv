@@ -188,18 +188,11 @@ srycoor=coor(start,2);
 dsxcoor=coor(des,1);
 dsycoor=coor(des,2);
 
-figure(2)
-pause(0.01);
-plot(dsxcoor,dsycoor,'.');
-grid on;
-
 figure
 subplot(1,1,1);
 hold all
-%plot(dsxcoor,dsycoor,'.');
-plot(xcoor,ycoor,'*',rxcoor,rycoor,'b',srxcoor,srycoor,'v',dsxcoor,dsycoor,'.','LineWidth',2);
+plot(dsxcoor,dsycoor,'v');
+%plot(xcoor,ycoor,'*',rxcoor,rycoor,'b',srxcoor,srycoor,'v',dsxcoor,dsycoor,'g','LineWidth',2);
 xlabel('X');
 ylabel('Y');
-
-
 grid on;
