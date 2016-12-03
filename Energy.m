@@ -1,4 +1,4 @@
-n=10;
+n=52;
 %graph=[0,7,9,25,22,14;7,0,10,15,25,16;9,10,0,11,14,2;25,15,11,0,6,17;22,25,16,6,0,8;14,16,2,17,8,0];
 graph=[];
 coor=[];
@@ -6,6 +6,8 @@ xcoor=[];
 ycoor=[];
 rxcoor=[];
 rycoor=[];
+dxcoor=[];
+dycoor=[];
 dij=[];
 
 for i=1:n
@@ -57,6 +59,7 @@ arre=[];
 arey=[];
 srdist=[];
 ind=[];
+denergy=[];
 psize=1;
 path(psize)=src;
 
@@ -95,7 +98,7 @@ end
 
 %dijkastra algo...........
 
-[dij,dsize]=Dijkstra(graph,orgarre,arre,arey,ind,src,des,n);
+[dij,dsize,denergy]=Dijkstra(graph,orgarre,arre,arey,ind,src,des,n);
 
 %end..................
   
@@ -169,11 +172,18 @@ while src~=des
 
 end
  
-disp('Path followed is ');
+disp('Path followed by our algorithm ');
 disp(path);
 
-disp('Energy of the system after transmission of data ');
+disp('Path followed by Dijkstra ');
+disp(dij);
+
+disp('Energy of the system after transmission of data in our algo ');
 disp(orgarre);
+
+disp('Energy of the system after transmission of data in dijkstra ');
+disp(denergy);
+
 
 for i=1:psize
     remaining(i)=orgarre(path(i));

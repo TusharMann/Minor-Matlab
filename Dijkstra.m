@@ -1,4 +1,4 @@
-function[path,psize]= Dijkstra(graph,orgarre,arre,arey,ind,src,des,n)
+function[path,psize,orgarre]= Dijkstra(graph,orgarre,arre,arey,ind,src,des,n)
 
 psize=1;
 path(psize)=src;
