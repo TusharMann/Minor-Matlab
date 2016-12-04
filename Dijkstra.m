@@ -21,16 +21,16 @@ while src~=des
 			if (ind(i)==0) && (i~=src)
 			z=graph(src,i);
                
-		    if(index==des)
+		  
+          if(index==des)
                
 				orgarre(src) =arre(src,index);
 				arey(src)= orgarre(src);
                 psize=psize+1;
                 path(psize)=index;
                 src=index;
-			
+                break;
             end
-        
             if(l>z) 
 			    l=z;
 				index=i;
@@ -50,6 +50,7 @@ while src~=des
         end
 		
         	
+        
 		if src == des
              break;
         end
