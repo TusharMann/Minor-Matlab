@@ -1,4 +1,4 @@
-n=20;
+n=52;
 
 graph=[];
 coor=[];
@@ -64,7 +64,7 @@ psize=1;
 path(psize)=src;
 
 %For 10 nodes
-orgarre=[61 75 66 46 56 3 76 18 70 12];
+%orgarre=[61 75 66 46 56 3 76 18 70 12];
 
 %For 20 nodes
 %orgarre=[61.8312,75.1722,66.7746,46.5825,56.7009,31.6321,76.4693,18.2085,70.6775,12.4082,89.5943,53.7954,64.2475,60.7045,22.7742,29.0182, 49.0923, 23.0689,86.4309,21.4764];
@@ -79,10 +79,10 @@ orgarre=[61 75 66 46 56 3 76 18 70 12];
 %orgarre=[54.6876,43.6799,66.0704,62.6713,25.9658,40.1402,3.5487,100.4064,15.3036,12.6216,35.0357,69.9728,15.6553,74.1227,9.6929,62.7110,51.4174,79.9052,64.6578,92.3721,61.8312,19,75.1722,66.7746,46.5825,56.7009,31.6321,26,76.4693,18.2085,70.6775,12.4082,89.5943,14,53.7954,64.2475,60.7045,22.7742, 29.0182, 49.0923,39, 23.0689,86.4309,21.4764,16,81,51,32,71,27];
 
 
-orgarre=initial;
+%orgarre=initial;
 for i=1:n
-    %orgarre(i)=rand*100+2;
-    %initial(i)=orgarre(i);
+    orgarre(i)=rand*100+2;
+    initial(i)=orgarre(i);
     %orgarre(i)=10;
 end
 disp('Energy of the system before transmission of data');
@@ -91,7 +91,7 @@ disp(initial);
 
 for i=1:n
     for j=1:n
-        arre(i,j)=(orgarre(i)-graph(i,j)* 0.1);
+        arre(i,j)=(orgarre(i)-graph(i,j)* 0.2);
         if arre(i,j) == 100
             arre(i,j)=0;
         end
@@ -107,7 +107,7 @@ end
 	
 for i=1:n
     for j=1:n
-        arre(i,j)=(orgarre(i)-graph(i,j)* 0.1);
+        arre(i,j)=(orgarre(i)-graph(i,j)* 0.2);
         
     end
 end
@@ -138,7 +138,7 @@ while src~=des
 			if (ind(i)==0) && (i~=src)
 			z=arre(src)+arey(i)-graph(src,i);
                
-			if(index==des)
+            	if(index==des)
                
 				orgarre(src) =arre(src,index);
 				arey(src)= orgarre(src);
@@ -147,7 +147,8 @@ while src~=des
                 src=index;
 				break;
             end
-            
+      
+	      
             if(l<z) && (orgarre(i)>=10)
 			    l=z;
 				index=i;
@@ -161,7 +162,8 @@ while src~=des
             else
 				continue;
             end
-			
+            
+				
 		
 		
         end

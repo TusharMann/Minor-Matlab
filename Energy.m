@@ -1,4 +1,4 @@
-n=30;
+n=52;
 
 graph=[];
 coor=[];
@@ -91,7 +91,7 @@ disp(initial);
 
 for i=1:n
     for j=1:n
-        arre(i,j)=(orgarre(i)-graph(i,j)* 0.1);
+        arre(i,j)=(orgarre(i)-graph(i,j)* 0.2);
         if arre(i,j) == 100
             arre(i,j)=0;
         end
@@ -107,7 +107,7 @@ end
 	
 for i=1:n
     for j=1:n
-        arre(i,j)=(orgarre(i)-graph(i,j)* 0.1);
+        arre(i,j)=(orgarre(i)-graph(i,j)* 0.2);
         
     end
 end
@@ -138,7 +138,7 @@ while src~=des
 			if (ind(i)==0) && (i~=src)
 			z=arre(src)+arey(i)-graph(src,i);
                
-			if(index==des)
+            	if(index==des)
                
 				orgarre(src) =arre(src,index);
 				arey(src)= orgarre(src);
@@ -147,7 +147,8 @@ while src~=des
                 src=index;
 				break;
             end
-            
+      
+	      
             if(l<z) && (orgarre(i)>=10)
 			    l=z;
 				index=i;
@@ -161,7 +162,8 @@ while src~=des
             else
 				continue;
             end
-			
+            
+				
 		
 		
         end
