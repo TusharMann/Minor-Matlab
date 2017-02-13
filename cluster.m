@@ -65,9 +65,6 @@ end
 disp('Mobility ');
 disp(mindis);
 
-disp('Find');
-disp(find);
-
 for i=1:n
     find(i)=0.4*mindis(i)+0.5*used(i);
 end
@@ -80,6 +77,10 @@ for i=2:n
         ch=i;
     end
 end
+
+disp('Find data');
+disp(find);
+
 
 for i=1:n
     xcoor(i)=coor(i,1);
