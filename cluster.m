@@ -4,6 +4,8 @@ graph=[];
 coor=[];
 mindis=[];
 find=[];
+xcoor=[];
+ycoor=[];
 
 for i=1:n
     for j=1:2
@@ -81,7 +83,7 @@ disp('Mobility ');
 disp(mindis);
 
 for i=1:n
-    find(i)=0.3*mindis(i)+0.5*used(i);
+    find(i)=0.4*mindis(i)+0.5*used(i);
 end
 
 head=find(1);
@@ -92,7 +94,25 @@ for i=2:n
         ch=i;
     end
 end
+
+for i=1:n
+    xcoor(i)=coor(i,1);
+    ycoor(i)=coor(i,2);
+end
+
+chx=coor(ch,1);
+chy=coor(ch,2);
+
    
+figure
+pause(0.05);
+subplot(1,1,1);
+plot(xcoor,ycoor,'*',chx,chy,'v','LineWidth',2);
+title('Cluster Head');
+xlabel('X');
+ylabel('Y');
+
+grid on;
 
 
 
