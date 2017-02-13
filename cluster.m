@@ -65,6 +65,9 @@ end
 disp('Mobility ');
 disp(mindis);
 
+disp('Find');
+disp(find);
+
 for i=1:n
     find(i)=0.4*mindis(i)+0.5*used(i);
 end
@@ -86,7 +89,6 @@ end
 chx=coor(ch,1);
 chy=coor(ch,2);
 
-   
 figure
 pause(0.05);
 subplot(1,1,1);
