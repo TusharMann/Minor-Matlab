@@ -1,4 +1,4 @@
-n=10;
+n=100;
 
 graph=[];
 coor=[];
@@ -6,6 +6,10 @@ mindis=[];
 find=[];
 xcoor=[];
 ycoor=[];
+tfind=[];
+chx=[];
+chy=[];
+
 
 for i=1:n
     for j=1:2
@@ -69,17 +73,27 @@ for i=1:n
     find(i)=0.4*mindis(i)+0.5*used(i);
 end
 
-head=find(1);
-ch=1;
-for i=2:n
-    if find(i)<head
-        head=find(i);
-        ch=i;
-    end
+for i=1:n
+    tfind(i,1)=find(i);
+    tfind(i,2)=i;
 end
 
 disp('Find data');
 disp(find);
+
+for i=1:n
+    for j=1:n-1
+      if tfind(j,1)>tfind(j+1,1)
+          temp=tfind(j,1);
+          tfind(j,1)=tfind(j+1,1);
+          tfind(j+1,1)=temp;
+          
+          temp=tfind(j,2);
+          tfind(j,2)=tfind(j+1,2);
+          tfind(j+1,2)=temp;
+      end
+    end
+end
 
 
 for i=1:n
@@ -87,15 +101,21 @@ for i=1:n
     ycoor(i)=coor(i,2);
 end
 
-chx=coor(ch,1);
-chy=coor(ch,2);
+for i=1:10
+    chx(i)=coor(tfind(i,2),1);
+    chy(i)=coor(tfind(i,2),2);
+
+end
+
 
 figure
 pause(0.05);
 subplot(1,1,1);
+
 plot(xcoor,ycoor,'*',chx,chy,'v','LineWidth',2);
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');
+axis('equal');
 
 grid on;
