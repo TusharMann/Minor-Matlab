@@ -1,4 +1,5 @@
 n=100;
+k=n/10;
 
 graph=[];
 coor=[];
@@ -9,6 +10,8 @@ ycoor=[];
 tfind=[];
 chx=[];
 chy=[];
+x=[];
+y=[];
 
 
 for i=1:n
@@ -70,7 +73,7 @@ disp('Mobility ');
 disp(mindis);
 
 for i=1:n
-    find(i)=0.4*mindis(i)+0.5*used(i);
+    find(i)=0.4*mindis(i)+1*used(i);
 end
 
 for i=1:n
@@ -101,7 +104,7 @@ for i=1:n
     ycoor(i)=coor(i,2);
 end
 
-for i=1:10
+for i=1:k
     chx(i)=coor(tfind(i,2),1);
     chy(i)=coor(tfind(i,2),2);
 
@@ -112,10 +115,28 @@ figure
 pause(0.05);
 subplot(1,1,1);
 
-plot(xcoor,ycoor,'*',chx,chy,'v','LineWidth',2);
+% for i=1:10
+%     angle=linspace(0,2*pi,360);
+%     x=5*cos(angle)+chx(i);
+%     y=5*sin(angle)+chy(i);
+% end
+for i=1:k
+  x(i,1)=chx(i);
+  y(i,1)=chy(i)
+end
+
+R=10;
+P=[0:0.1:2*pi 0];
+xr=R*cos(P);
+yr=R*sin(P);
+X_C=bsxfun(@plus,x,xr);
+Y_C=bsxfun(@plus,y,yr);
+%plot(X_C',Y_C','g')
+
+plot(xcoor,ycoor,'*',chx,chy,'v',X_C',Y_C','g','LineWidth',2);
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');
-axis('equal');
+axis equal
 
 grid on;

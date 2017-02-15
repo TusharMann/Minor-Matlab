@@ -1,4 +1,5 @@
 n=100;
+k=n/10;
 
 graph=[];
 coor=[];
@@ -9,6 +10,8 @@ ycoor=[];
 tfind=[];
 chx=[];
 chy=[];
+x=[];
+y=[];
 
 
 for i=1:n
@@ -101,7 +104,7 @@ for i=1:n
     ycoor(i)=coor(i,2);
 end
 
-for i=1:10
+for i=1:k
     chx(i)=coor(tfind(i,2),1);
     chy(i)=coor(tfind(i,2),2);
 
@@ -112,15 +115,28 @@ figure
 pause(0.05);
 subplot(1,1,1);
 
-angle=linspace(10,500,500000);
-x=cos(angle)+20;
-y=sin(angle)+20;
-%plot(x,y);
+% for i=1:10
+%     angle=linspace(0,2*pi,360);
+%     x=5*cos(angle)+chx(i);
+%     y=5*sin(angle)+chy(i);
+% end
+for i=1:10
+    
+    e
+X=rand(n,1)*10;
+Y=rand(n,1)*10;
+R=rand(n,1)*3;
+P=[0:0.1:2*pi 0];
+xr=R*cos(P);
+yr=R*sin(P);
+X_C=bsxfun(@plus,X,xr);
+Y_C=bsxfun(@plus,Y,yr);
+plot(X_C',Y_C','g')
+axis equal
 
-plot(xcoor,ycoor,'*',chx,chy,'v',x,y,'LineWidth',2);
+%plot(xcoor,ycoor,'*',chx,chy,'v','LineWidth',2);
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');
-axis('equal');
 
 grid on;
