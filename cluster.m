@@ -73,7 +73,7 @@ disp('Mobility ');
 disp(mindis);
 
 for i=1:n
-    find(i)=0.4*mindis(i)+1*used(i);
+    find(i)=0.5*used(i);
 end
 
 for i=1:n
