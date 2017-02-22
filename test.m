@@ -7,6 +7,7 @@ xcoor=[];
 ycoor=[];
 left=[];
 used=[];
+chh=[];
 
 one=[];
 two=[];
@@ -26,6 +27,7 @@ f=0;
 g=0;
 h=0;
 k=0;
+l=0;
 
 for i=1:n
     for j=1:2
@@ -122,9 +124,45 @@ for i=1:a
     minone(i)=s/a;
 end
 
+findone=[];
 for i=1:a
-    
+    findone(i)=0.4*minone(i)+0.6*used(one(i));
 end
+
+min=findone(1);
+for i=2:a
+    if min>findone(i)
+        min=findone(i);
+        ch=i;
+    end
+end
+l=l+1;
+chh(l)=one(ch);
+
+mintwo=[];
+for i=1:a
+    s=0;
+    for j=1:a
+        s=s+graph(two(i),two(j));
+    end
+    mintwo(i)=s/a;
+end
+
+findtwo=[];
+for i=1:a
+    findtwo(i)=0.4*mintwo(i)+0.6*used(two(i));
+end
+
+min=findtwo(1);
+for i=2:a
+    if min>findtwo(i)
+        min=findtwo(i);
+        ch=i;
+    end
+end
+l=l+1;
+chh(l)=one(ch);
+
 
 
 
