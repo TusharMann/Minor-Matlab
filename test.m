@@ -132,6 +132,7 @@ for i=1:a
 end
 
 min=findone(1);
+ch=1;
 for i=2:a
     if min>findone(i)
         min=findone(i);
@@ -156,6 +157,7 @@ for i=1:p
 end
 
 min=findtwo(1);
+ch=1;
 for i=2:p
     if min>findtwo(i)
         min=findtwo(i);
@@ -180,6 +182,7 @@ for i=1:c
 end
 
 min=findthree(1);
+ch=1;
 for i=2:c
     if min>findthree(i)
         min=findthree(i);
@@ -204,6 +207,7 @@ for i=1:q
 end
 
 min=findfour(1);
+ch=1;
 for i=2:q
     if min>findfour(i)
         min=findfour(i);
@@ -228,6 +232,7 @@ for i=1:e
 end
 
 min=findfive(1);
+ch=1;
 for i=2:e
     if min>findfive(i)
         min=findfive(i);
@@ -252,6 +257,7 @@ for i=1:f
 end
 
 min=findsix(1);
+ch=1;
 for i=2:f
     if min>findsix(i)
         min=findsix(i);
@@ -276,6 +282,7 @@ for i=1:g
 end
 
 min=findseven(1);
+ch=1;
 for i=2:g
     if min>findseven(i)
         min=findseven(i);
@@ -300,6 +307,7 @@ for i=1:h
 end
 
 min=findeight(1);
+ch=1;
 for i=2:h
     if min>findeight(i)
         min=findeight(i);
@@ -324,6 +332,7 @@ for i=1:k
 end
 
 min=findnine(1);
+ch=1;
 for i=2:k
     if min>findnine(i)
         min=findnine(i);
