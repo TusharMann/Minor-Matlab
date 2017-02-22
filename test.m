@@ -346,7 +346,22 @@ end
 figure
 pause(0.05);
 subplot(1,1,1);
+
 plot(xcoor,ycoor,'*',chxcoor,chycoor,'v','LineWidth',2);
+
+rectangle('Position',[0 0 33 33],'Curvature',0.2)
+rectangle('Position',[33 0 33 33],'Curvature',0.2)
+rectangle('Position',[66 0 34 33],'Curvature',0.2)
+
+rectangle('Position',[0 33 33 33],'Curvature',0.2)
+rectangle('Position',[33 33 33 33],'Curvature',0.2)
+rectangle('Position',[66 33 34 33],'Curvature',0.2)
+
+rectangle('Position',[0 66 33 34],'Curvature',0.2)
+rectangle('Position',[33 66 33 34],'Curvature',0.2)
+rectangle('Position',[66 66 34 34],'Curvature',0.2)
+
+axis equal
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');
