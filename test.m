@@ -3,17 +3,11 @@ k=n/10;
 
 graph=[];
 coor=[];
-mindis=[];
-find=[];
 xcoor=[];
 ycoor=[];
 left=[];
 used=[];
-tfind=[];
-chx=[];
-chy=[];
-x=[];
-y=[];
+
 one=[];
 two=[];
 three=[];
@@ -24,9 +18,9 @@ seven=[];
 eight=[];
 nine=[];
 a=0;
-b=0;
+p=0;
 c=0;
-d=0;
+q=0;
 e=0;
 f=0;
 g=0;
@@ -69,20 +63,69 @@ for i=1:n
     end
 end
 
-for i=1:n
-    left(i)=rand*100+2;
+for i=1:n   
+    left(i)=randi([1,100],1,1);   
     used(i)=100-left(i);
-    %orgarre(i)=10;
 end
+    
 disp('Used energy of the each node');
 disp(used);
 
 for i=1:n
-   if (coor(i)(1)<=33) && (coor(i)(2)<=33)
+   if (coor(i,1)<=33) && (coor(i,2)<=33)
        a=a+1;
        one(a)=i;
+   
+   elseif (coor(i,1)<=33) && (coor(i,2)<=66)
+       p=p+1;
+       two(p)=i;
+      
+   elseif (coor(i,1)<=33) && (coor(i,2)<=100)
+       c=c+1;
+       three(c)=i;
+      
+   elseif (coor(i,1)<=66) && (coor(i,2)<=33)
+       q=q+1;
+       four(q)=i;
+       
+   elseif (coor(i,1)<=66) && (coor(i,2)<=66)
+       e=e+1;
+       five(e)=i;
+ 
+   
+   elseif (coor(i,1)<=66) && (coor(i,2)<=100)
+       f=f+1;
+       six(f)=i;
+   
+   elseif (coor(i,1)<=100) && (coor(i,2)<=33)
+       g=g+1;
+       seven(g)=i;
+      
+   elseif (coor(i,1)<=100) && (coor(i,2)<=66)
+       h=h+1;
+       eight(h)=i;
+      
+   elseif (coor(i,1)<=100) && (coor(i,2)<=100)
+       k=k+1;
+       nine(k)=i;
+       
    end
+   
 end
+
+minone=[];
+for i=1:a
+    s=0;
+    for j=1:a
+        s=s+graph(one(i),one(j));
+    end
+    minone(i)=s/a;
+end
+
+for i=1:a
+    
+end
+
 
 
 for i=1:n
@@ -90,39 +133,11 @@ for i=1:n
     ycoor(i)=coor(i,2);
 end
 
-for i=1:k
-    chx(i)=coor(tfind(i,2),1);
-    chy(i)=coor(tfind(i,2),2);
-
-end
-
-
 figure
 pause(0.05);
 subplot(1,1,1);
-
-% for i=1:10
-%     angle=linspace(0,2*pi,360);
-%     x=5*cos(angle)+chx(i);
-%     y=5*sin(angle)+chy(i);
-% end
-for i=1:k
-  x(i,1)=chx(i);
-  y(i,1)=chy(i)
-end
-
-R=10;
-P=[0:0.1:2*pi 0];
-xr=R*cos(P);
-yr=R*sin(P);
-X_C=bsxfun(@plus,x,xr);
-Y_C=bsxfun(@plus,y,yr);
-%plot(X_C',Y_C','g')
-
-plot(xcoor,ycoor,'*',chx,chy,'v',X_C',Y_C','g','LineWidth',2);
+plot(xcoor,ycoor,'*','LineWidth',2);
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');
-axis equal
-
 grid on;
