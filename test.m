@@ -5,6 +5,8 @@ graph=[];
 coor=[];
 xcoor=[];
 ycoor=[];
+chxcoor=[];
+chycoor=[];
 left=[];
 used=[];
 chh=[];
@@ -331,17 +333,20 @@ end
 l=l+1;
 chh(l)=nine(ch);
 
-
-
 for i=1:n
     xcoor(i)=coor(i,1);
     ycoor(i)=coor(i,2);
 end
 
+for i=1:l
+    chxcoor(i)=coor(chh(i),1);
+    chycoor(i)=coor(chh(i),2);
+end
+
 figure
 pause(0.05);
 subplot(1,1,1);
-plot(xcoor,ycoor,'*','LineWidth',2);
+plot(xcoor,ycoor,'*',chxcoor,chycoor,'v','LineWidth',2);
 title('Cluster Head');
 xlabel('X');
 ylabel('Y');

@@ -5,6 +5,8 @@ graph=[];
 coor=[];
 xcoor=[];
 ycoor=[];
+chxcoor=[];
+chycoor=[];
 left=[];
 used=[];
 chh=[];
@@ -317,12 +319,12 @@ for i=1:k
 end
 
 findnine=[];
-for i=1:a
+for i=1:k
     findnine(i)=0.4*minnine(i)+0.6*used(nine(i));
 end
 
 min=findnine(1);
-for i=2:a
+for i=2:k
     if min>findnine(i)
         min=findnine(i);
         ch=i;
@@ -330,8 +332,6 @@ for i=2:a
 end
 l=l+1;
 chh(l)=nine(ch);
-
-
 
 for i=1:n
     xcoor(i)=coor(i,1);
