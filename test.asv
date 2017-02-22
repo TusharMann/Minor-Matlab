@@ -7,8 +7,6 @@ mindis=[];
 find=[];
 xcoor=[];
 ycoor=[];
-left=[];
-used=[];
 tfind=[];
 chx=[];
 chy=[];
@@ -77,12 +75,6 @@ end
 disp('Used energy of the each node');
 disp(used);
 
-for i=1:n
-   if (coor(i)(1)<=33) && (coor(i)(2)<=33)
-       a=a+1;
-       one(a)=i;
-   end
-end
 
 
 for i=1:n
